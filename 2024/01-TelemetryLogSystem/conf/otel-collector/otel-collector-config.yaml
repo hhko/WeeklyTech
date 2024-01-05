@@ -31,7 +31,7 @@ exporters:
   debug:
     verbosity: detailed
   otlp/logs:
-    endpoint: data-prepper:21892
+    endpoint: data-prepper:21890
     tls:
       insecure: true
 

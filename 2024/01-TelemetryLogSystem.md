@@ -1,37 +1,32 @@
-# 2024년 Weekly #01
+# 2024년 Weekly #01 | 로그 수집 시스템 구축하기
 
 ## 개요
-- opensearch 오픈소스를 이용하여 로그를 수집한다.
+- opensearch 오픈소스를 이용하여 로그 수집 시스템을 구축한다.
   - 소스: [링크](./W01-Log/)
 
-<br/>
-
 ## 배움
-- fluent-bit을 이용한 파일 로그 수집과 전송 방법을 이해한다.
+- fluent-bit을 이용한 로그 파일 수집과 전송 방법을 이해한다.
   - stdout
   - http
   - opentelemetry
-- data-prepper을 다중 pipeline을 이용하여 아파치 로그 해석기를 개발한다.
+- data-prepper 다중 pipeline을 이용하여 apache 로그 해석기를 개발한다.
   - parse_json
   - grok
-- otel-collector을 이용하여 fluent-bit와 data-prepper 중계한다.
-
-<br/>
+- otel-collector을 이용하여 fluent-bit와 data-prepper을 중계한다.
 
 ## 시스템 구성
 ```
 # Case 1.
 fluent-bit ---------------------> data-prepper -> opensearch -> opensearch dashboards
-test.log                          21890/?         9200/https    5601/http  
+test.log                          21890/?         9200/https    5601/http
 
 # Case 2.
 fluent-bit --> otel-collector --> data-prepper -> opensearch -> opensearch dashboards
-test.log       8080/http          21890/?         9200/https    5601/http  
+test.log       8080/http          21890/?         9200/https    5601/http
 ```
 
 ![](./.images/2024-01-05-13-36-29.png)
 
-<br/>
 
 ## 로그 데이터
 ### 입력 데이터

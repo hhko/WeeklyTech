@@ -23,7 +23,7 @@ log-pipeline_otel-collector:
   source:
     otel_logs_source:
       ssl: false
-      port: 21892
+      port: 21890
   # {
   #     "body": "{\"log\":\"63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \\\"GET /search/tag/list HTTP/1.0\\\" 200 5003\"}",
   #     "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003"
