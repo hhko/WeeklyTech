@@ -13,6 +13,7 @@
 
 ## 배움
 - FluentValidation 확장 메서드 구현 방법을 이해한다.
+- Verify을 이용하여 WebApi 결과를 Snapshot 테스트한다.
 
 ## 실행
 - WebApi
@@ -38,6 +39,7 @@ public class AddressesValidator : AbstractValidator<AddressDto[]>
 ```
 
 ## 유효성 확장 메서드 구현
+### FluentValidation 인터페이스 이해
 - RuleFor 메서드 리턴 값은 `IRuleBuilderInitial`입니다.
   ```
   IRuleBuilder
@@ -49,6 +51,10 @@ public class AddressesValidator : AbstractValidator<AddressDto[]>
   public interface IRuleBuilderInitial<T, out TProperty> : IRuleBuilder<T, TProperty> { }
   ```
 
+### 배열 유효성 검사 확장 메서드
+```cs
+IRuleBuilder<T, IList<TElement>>
+```
 ```cs
 public static class CustomValidators
 {
@@ -105,4 +111,33 @@ public partial class StudentControllerTest : IClassFixture<WebApplicationFactory
 ```
 ```
 The list must contain 1 items or more. It contains 0 items.
+```
+
+## Verify Snapshot 테스트
+### 형상관리 설정
+- `.gitignore` 파일
+  ```
+  *.received.*
+  ```
+- ``.gitattributes` 파일
+  ```
+  *.verified.txt text eol=lf working-tree-encoding=UTF-8
+  *.verified.xml text eol=lf working-tree-encoding=UTF-8
+  *.verified.json text eol=lf working-tree-encoding=UTF-8
+  ```
+
+### 출력 경로 지정
+```cs
+public static class VerifierInitializer
+{
+    [ModuleInitializer]
+    public static void Initialize()
+    {
+        // https://github.com/VerifyTests/Verify/blob/main/docs/naming.md
+        // UseSplitModeForUniqueDirectory 
+        UseProjectRelativeDirectory("Snapshots");
+
+        //VerifySourceGenerators.Enable();
+    }
+}
 ```
