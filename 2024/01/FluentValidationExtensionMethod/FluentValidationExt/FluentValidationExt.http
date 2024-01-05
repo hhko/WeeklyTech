@@ -1,0 +1,61 @@
+@hostname=localhost
+@port=5282
+@host = http://{{hostname}}:{{port}}
+@contentType = application/json
+
+###
+POST {{host}}/api/students
+Content-Type:{{contentType}}
+
+{
+    "addresses": [
+        {
+            "street": "1234 Main St",
+            "city": "Arlington",
+            "state": "VA",
+            "zipCode": "22201"
+        }
+    ]
+}
+
+###
+POST {{host}}/api/students
+Content-Type:{{contentType}}
+
+{
+    "addresses": [
+    ]
+}
+
+###
+POST {{host}}/api/students
+Content-Type:{{contentType}}
+
+{
+    "addresses": [
+        {
+            "street": "111 Main St",
+            "city": "Arlington",
+            "state": "VA",
+            "zipCode": "22201"
+        },
+        {
+            "street": "222 Main St",
+            "city": "Arlington",
+            "state": "VA",
+            "zipCode": "22201"
+        },
+        {
+            "street": "333 Main St",
+            "city": "Arlington",
+            "state": "VA",
+            "zipCode": "22201"
+        },
+        {
+            "street": "444 Main St",
+            "city": "Arlington",
+            "state": "VA",
+            "zipCode": "22201"
+        }
+    ]
+}
