@@ -28,6 +28,19 @@ test.log       8080/http          21890/?         9200/https    5601/http
 ![](./.images/2024-01-05-13-36-29.png)
 
 
+## 실행
+```shell
+# 컨테이너 실행
+docker-compose up -d
+
+# 로그 테이터 추가
+echo '63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] "GET /search/tag/list HTTP/1.0" 200 5003' >> test.log
+
+# 로그 데이터 확인
+#   http://localhost:5601
+#   admin/admin
+```
+
 ## 로그 데이터
 ### 입력 데이터
 > echo '63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] "GET /search/tag/list HTTP/1.0" 200 5003' >> test.log
