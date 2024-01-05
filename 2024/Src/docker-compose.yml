@@ -1,0 +1,135 @@
+version: '3'
+
+services:
+
+#
+# OpenSearch
+#   - opensearch
+#   - opensearch dashboards
+#
+
+  # curl https://localhost:9200 -ku 'admin:admin'
+  # curl -XGET -u 'admin:admin' -k 'https://localhost:9200/_cat/indices?v'
+  #
+  # curl -XGET -u 'admin:admin' -k 'https://localhost:9200/apache_logs/_search?pretty'
+  # curl -XGET -u 'admin:admin' -k 'https://localhost:9200/apache_logs/_search?pretty&size=1'
+  opensearch:
+    # https://hub.docker.com/r/opensearchproject/opensearch/tags
+    image: opensearchproject/opensearch:2.11.1
+    container_name: opensearch
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+      #- "DISABLE_INSTALL_DEMO_CONFIG=true" # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
+      #- "DISABLE_SECURITY_PLUGIN=true" # Disables Security plugin
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536 # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
+        hard: 65536
+    ports:
+      - 9200:9200
+      - 9600:9600 # required for Performance Analyzer
+    networks:
+      - opensearch-net
+
+  dashboards:
+    # https://hub.docker.com/r/opensearchproject/opensearch-dashboards/tags
+    image: opensearchproject/opensearch-dashboards:2.11.1
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
+    networks:
+      - opensearch-net
+    depends_on:
+      - opensearch
+
+#
+# Pipeline
+#   - data-prepper
+#   - otel-collector
+#   - fluent-bit
+#
+
+  # 로그 테스트 입력
+  # curl -s -k -H "Content-Type: application/json" -d '[{ "date": 1704341218.761981, "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003" }]' "http://192.168.100.103:2021/log/ingest"
+  data-prepper:
+    # https://hub.docker.com/r/opensearchproject/data-prepper/tags
+    image: opensearchproject/data-prepper:2.6.1
+    container_name: data-prepper
+    volumes:
+      - ./conf/data-prepper/log_pipeline.yaml:/usr/share/data-prepper/pipelines/log_pipeline.yaml
+      - ./conf/data-prepper/data-prepper-config.yaml:/usr/share/data-prepper/config/data-prepper-config.yaml
+    # ports:
+    #   - 2021:2021
+    #   - 21890:21890
+    #   - 21892:21892
+    #   - 4900:4900
+      # - "4900:4900" # DataPrepperServer port
+      # - "21890:21890" # OTelTraceSource port
+    ports:
+      - 2021
+      - 21892
+    networks:
+      - opensearch-net
+    depends_on:
+      - opensearch
+
+  otel-collector:
+    # https://hub.docker.com/r/otel/opentelemetry-collector-contrib/tags
+    image: otel/opentelemetry-collector-contrib:0.91.0
+    container_name: otel-collector
+    #command: ["--config=/etc/otel-collector-config.yaml", "${OTELCOL_ARGS}"]
+    #command: [ "--config=/etc/otel-collector-config.yml" ]
+    #working_dir: "/project"
+    volumes:
+      #- ${PWD}/:/project
+      - ./conf/otel-collector/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - 1888:1888 # pprof extension
+      - 8888:8888 # Prometheus metrics exposed by the Collector
+      - 8889:8889 # Prometheus exporter metrics
+      - 13133:13133 # health_check extension
+      - 4317:4317 # OTLP gRPC receiver
+      - 4318:4318 # OTLP http receiver
+      - 55679:55679 # zpages extension
+    networks:
+      - opensearch-net
+
+    #
+    # 로그 무시: data-prepper가 정상 가동될 때까지 exporter otlp/logs 접속이 안되 경고 메시지가 출력된다.
+    #
+    # 2024-01-05T02:00:58.977Z
+    #   warn
+    #   zapgrpc/zapgrpc.go:195
+    #   [core]
+    #   [Channel #1 SubChannel #2]
+    #   grpc: addrConn.createTransport failed to connect to {Addr: "data-prepper:21892", ServerName: "data-prepper:21892", }.
+    #   Err: connection error: desc = "transport: Error while dialing: dial tcp 172.23.0.3:21892: connect: connection refused" {"grpc_log": true}
+    depends_on:
+      - data-prepper
+
+  # 로그 테스트 입력
+  # echo '63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] "GET /search/tag/list HTTP/1.0" 200 5003' >> test.log
+  fluent-bit:
+    # https://hub.docker.com/r/fluent/fluent-bit/tags
+    image: fluent/fluent-bit:2.2.1-debug
+    container_name: fluent-bit
+    volumes:
+      - ./conf/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+      - ./test.log:/var/log/test.log
+    networks:
+      - opensearch-net
+    depends_on:
+      - data-prepper
+      - otel-collector
+
+networks:
+  opensearch-net:

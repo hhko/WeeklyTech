@@ -1,0 +1,43 @@
+# https://github.com/open-telemetry/opentelemetry-collector/tree/main/receiver
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+        endpoint: 0.0.0.0:8006
+
+# 2024-01-05T01:11:50.291Z        info    LogsExporter    {"kind": "exporter", "data_type": "logs", "name": "debug", "resource logs": 1, "log records": 1}
+# 2024-01-05T01:11:50.291Z        info    ResourceLog #0
+# Resource SchemaURL:
+# ScopeLogs #0
+# ScopeLogs SchemaURL:
+# InstrumentationScope
+# LogRecord #0
+# ObservedTimestamp: 1970-01-01 00:00:00 +0000 UTC
+# Timestamp: 2024-01-05 01:11:49.2102193 +0000 UTC
+# SeverityText:
+# SeverityNumber: Unspecified(0)
+# Body: Map({"log":"63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003"})
+# Trace ID:
+# Span ID:
+# Flags: 0
+#         {"kind": "exporter", "data_type": "logs", "name": "debug"}
+
+processors:
+  batch:
+
+# https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter
+exporters:
+  debug:
+    verbosity: detailed
+  otlp/logs:
+    endpoint: data-prepper:21892
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug, otlp/logs]
