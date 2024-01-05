@@ -9,6 +9,7 @@
   ```
 
 ## TODO 로그
+- https://opentelemetry.io/docs/specs/otel/logs/
 - 아파치 로그 자동 생성기
 - otel-collector 로그 해석하기
   - https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/filelogreceiver
