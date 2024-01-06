@@ -3,6 +3,10 @@
 > 주간으로 설렘을 기록한다.
 
 ## 2024년
+### 2주
+- `TODO` FluentValidation | Entity 유효성 검사 통합
+- `TODO` Telemetry | otel-collector 로그 파일 모니터링
+
 ### 1주
 - Telemetry | [로그 수집 시스템 구축하기](./2024/01/TelemetryLogSystem/)
   ```
