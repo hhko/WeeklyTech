@@ -145,3 +145,6 @@ public static class VerifierInitializer
 
 ## TODO
 - `[Theory]`로 0개, 4개 주소 테스트 필요
+
+## 참고 자료
+- [Parameter Passing in IRuleBuilder Extension Method](https://copyprogramming.com/howto/passing-parameter-to-irulebuilder-extension-method)
