@@ -15,7 +15,8 @@ Not-always-valid                   Always-valid domain model                    
 예. Email
 hello@xyz.com       --Validation-> hello@xyz.com               --No Validation--> hello@xyz.com
 ```
-- Validation으로 항상 유효한 도메인 객체 세상이 된다. 
+- Validation으로 **도메인 모델은 항상 유효합니다(Always-valid domain model)**.
+  - Internal world에서는 객체가 유효한지 매번 확인할 필요가 없습니다.
 
 ## Validation 실패일 때
 ```
