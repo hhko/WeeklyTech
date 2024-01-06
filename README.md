@@ -2,8 +2,14 @@
 > **배움**은 **설렘**이다.  
 > 주간으로 설렘을 기록한다.
 
+- [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
+
 ## 2024년
 ### 2주
+- Validation | [유효성 검사는 매핑입니다(개념 1/3)](./2024/02/ValidationConcept1/)
+  ```
+  Always-valid domain model
+  ```
 - `TODO` FluentValidation | Entity 유효성 검사 통합
 - `TODO` Telemetry | otel-collector 로그 파일 모니터링
 
