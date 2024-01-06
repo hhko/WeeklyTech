@@ -27,6 +27,20 @@ test.log       8080/http          21890/?         9200/https    5601/http
 
 ![](./.images/2024-01-05-13-36-29.png)
 
+## 사전 준비
+### WSL2 설정
+- `%userprofile%.wslconfig` 파일
+  ```ini
+  [wsl2]
+  memory=6GB
+  swap=0
+  kernelCommandLine="sysctl.vm.max_map_count=262144"
+  ```
+  - `swap=0` swapping 비활성화
+  - `kernelCommandLine="sysctl.vm.max_map_count=262144"` 최대 맵 카운트 설정
+- [OpenSearch 중요 설정](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/#important-host-settings)
+  - Disable memory paging and swapping: `swap=0`
+  - Increase the number of memory maps available: `kernelCommandLine="sysctl.vm.max_map_count=262144"`
 
 ## 실행
 ```shell
