@@ -22,3 +22,9 @@ file -> otel-collector -> data-prepper -> opensearch -> opensearch dashboards
   - https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/opensearchexporter
 - vector docker-compose
   - https://github.com/livingdocsIO/monitoring
+
+## TODO
+- global.json
+- Directory.Build.props
+- Directory.Packages.props
+- .editorconfig
