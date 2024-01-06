@@ -5,9 +5,9 @@
 > Validation is the process of **mapping a set onto its subset**.  
 > 유효성 검사는 큰 집합에서 작은 집합으로 매핑하는 것입니다.
 >
-> - External world -> Internal world
->   - 큰집하에서 작은 집합으로 이동할 때 유효성 감사를 진행합니다.
-> - Internal world -> External world
+> - `External world --Validation--> Internal world`
+>   - 큰 집합에서 작은 집합으로 이동할 때 유효성 감사를 진행합니다.
+> - `Internal world --No Validation--> External world`
 >   - 작읍 집합에서 큰 집합으로 이동할 때는 유효성 검사를 진행하지 않습니다.
 
 ## Validation 성공일 때
