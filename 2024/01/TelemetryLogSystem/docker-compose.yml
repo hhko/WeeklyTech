@@ -76,7 +76,7 @@ services:
       # - "21890:21890" # OTelTraceSource port
     ports:
       - 2021
-      - 21890
+      - 21892
     networks:
       - opensearch-net
     depends_on:
@@ -111,8 +111,8 @@ services:
     #   zapgrpc/zapgrpc.go:195
     #   [core]
     #   [Channel #1 SubChannel #2]
-    #   grpc: addrConn.createTransport failed to connect to {Addr: "data-prepper:21890", ServerName: "data-prepper:21890", }.
-    #   Err: connection error: desc = "transport: Error while dialing: dial tcp 172.23.0.3:21890: connect: connection refused" {"grpc_log": true}
+    #   grpc: addrConn.createTransport failed to connect to {Addr: "data-prepper:21892", ServerName: "data-prepper:21892", }.
+    #   Err: connection error: desc = "transport: Error while dialing: dial tcp 172.23.0.3:21892: connect: connection refused" {"grpc_log": true}
     depends_on:
       - data-prepper
 

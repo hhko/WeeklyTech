@@ -3,10 +3,10 @@ log-pipeline_fluent-bit:
     http:
       ssl: false
       port: 2021
-  # {
-  #     "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003",
-  # }
   processor:
+    # {
+    #     "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003",
+    # }
     - grok:
         match:
           log: [ "%{COMMONAPACHELOG}" ]
@@ -21,14 +21,15 @@ log-pipeline_fluent-bit:
 
 log-pipeline_otel-collector:
   source:
+    # https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-logs-source/
     otel_logs_source:
       ssl: false
-      port: 21890
-  # {
-  #     "body": "{\"log\":\"63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \\\"GET /search/tag/list HTTP/1.0\\\" 200 5003\"}",
-  #     "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003"
-  # }
+      port: 21892
   processor:
+    # {
+    #     "body": "{\"log\":\"63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \\\"GET /search/tag/list HTTP/1.0\\\" 200 5003\"}",
+    #     "log": "63.173.168.120 - - [04/Nov/2021:15:07:25 -0500] \"GET /search/tag/list HTTP/1.0\" 200 5003"
+    # }
     - parse_json:
         source: "body"
         pointer: "log"

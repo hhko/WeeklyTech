@@ -12,17 +12,18 @@
 - data-prepper 다중 pipeline을 이용하여 apache 로그 해석기를 개발한다.
   - parse_json
   - grok
+  - 2.6.1 버전에서는 멀티 source을 제공하지 않는다: [Support multiple sources for a pipeline](https://github.com/opensearch-project/data-prepper/issues/406)
 - otel-collector을 이용하여 fluent-bit와 data-prepper을 중계한다.
 
 ## 시스템 구성
 ```
 # Case 1.
 fluent-bit ---------------------> data-prepper -> opensearch -> opensearch dashboards
-test.log                          21890/?         9200/https    5601/http
+test.log                          21892           9200          5601
 
 # Case 2.
 fluent-bit --> otel-collector --> data-prepper -> opensearch -> opensearch dashboards
-test.log       8080/http          21890/?         9200/https    5601/http
+test.log       8080               21892           9200          5601
 ```
 
 ![](./.images/2024-01-05-13-36-29.png)

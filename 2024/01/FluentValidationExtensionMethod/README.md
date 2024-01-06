@@ -2,6 +2,7 @@
 
 ## 개요
 - 유효성 검사를 명시적으로 개선한다.
+  > 주소는 최대 1개에서 최대 3개를 갖는다.
   - 개선 전
     ```cs
     .Must(x => x?.Length >= 1 && x.Length <= 3).WithMessage("The number of addresses must be between 1 and 3")
@@ -141,3 +142,6 @@ public static class VerifierInitializer
     }
 }
 ```
+
+## TODO
+- `[Theory]`로 0개, 4개 주소 테스트 필요
