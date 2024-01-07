@@ -1,6 +1,6 @@
 # WeeklyTech
-> **배움**은 **설렘**이다.  
-> 주간으로 설렘을 기록한다.
+> **배움**은 **설렘**이다.   
+> **배움**은 **이타심(利他心)**이다.
 
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
