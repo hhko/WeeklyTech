@@ -1,3 +1,6 @@
+- `TODO` FluentValidation | Entity 유효성 검사 통합
+- `TODO` Telemetry | otel-collector 로그 파일 모니터링
+
 ## TODO 로그 목표
 ```
 file -> otel-collector -> data-prepper -> opensearch -> opensearch dashboards
