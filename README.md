@@ -13,7 +13,7 @@
 - Validation | [유효성 검사 규칙은 도메인 지식이다(개념 2/3)](./2024/02/ValidationConcept2/)
   ```
   Invariant is a condition that your domain model must uphold at all times.
-  - Invariant are the same as input validation
+  Invariant is the same as input validation
   ```
 
 ### 1주
@@ -25,7 +25,7 @@
     -> opensearch
     -> opensearch dashboards
   ```
-- FluentValidation | [FluentValidation 확장 메서드](./2024/01/FluentValidationExtensionMethod/)
+- Validation | [FluentValidation 확장 메서드 만들기](./2024/01/FluentValidationExtensionMethod/)
   ```cs
   IRuleBuilder<T, IList<TElement>> ruleBuilder
   ```

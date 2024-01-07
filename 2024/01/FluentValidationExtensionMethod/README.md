@@ -1,4 +1,4 @@
-# 2024년 Weekly #01 | FluentValidation 확장 메서드
+# 2024년 Weekly #01 | FluentValidation 확장 메서드 만들기
 
 ## 개요
 - 유효성 검사를 명시적으로 개선한다.
