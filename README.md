@@ -6,7 +6,7 @@
 
 ## 2024년
 ### 2주
-- Validation | [유효성 검사는 매핑입니다(개념 1/3)](./2024/02/ValidationConcept1/)
+- Validation | [유효성 검사는 하위 집합 매핑이다(개념 1/3)](./2024/02/ValidationConcept1/)
   ```
   Always-valid domain model
   ```

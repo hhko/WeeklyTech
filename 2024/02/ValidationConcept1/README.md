@@ -1,9 +1,9 @@
-# 2024년 Weekly #02 | 유효성 검사는 매핑입니다(개념 1/3)
+# 2024년 Weekly #02 | 유효성 검사는 하위 집합 매핑이다(개념 1/3)
 
 ![](./.images/2024-01-07-03-48-38.png)
 
-> Validation is the process of **mapping a set onto its subset**.  
-> 유효성 검사는 큰 집합에서 작은 집합으로 매핑하는 것입니다.
+> Validation is the process of **mapping a set(superset) onto its subset**.  
+> 유효성 검사는 집합을 하위 집합에 매핑하는 절차입니다.
 >
 > - `External world --Validation--> Internal world`
 >   - 큰 집합에서 작은 집합으로 이동할 때 유효성 감사를 진행합니다.
