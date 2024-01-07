@@ -11,6 +11,9 @@
   Always-valid domain model
   ```
 - Validation | [유효성 검사 규칙은 도메인 지식이다(개념 2/3)](./2024/02/ValidationConcept2/)
+  ```
+  Validation rules are invariants
+  ```
 
 ### 1주
 - Telemetry | [로그 수집 시스템 구축하기](./2024/01/TelemetryLogSystem/)
