@@ -4,3 +4,6 @@
 
 > **Always-valid** domain model  
 > - 유효성 검사 규칙은 도메인 모델이 **항상 지켜야할 조건입니다(불변)**.
+
+- Validation rules are invariants
+  - = Invariants are the reason validation exists
