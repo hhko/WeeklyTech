@@ -6,9 +6,9 @@
 > 유효성 검사는 집합을 하위 집합에 매핑하는 절차입니다.
 >
 > - `External world --Validation--> Internal world`
->   - 큰 집합에서 작은 집합으로 이동할 때 유효성 감사를 진행합니다.
+>   - 집합을 하위 집합에 매핑할 때 유효성 감사를 진행합니다.
 > - `Internal world --No Validation--> External world`
->   - 작은 집합에서 큰 집합으로 이동할 때는 유효성 검사를 진행하지 않습니다.
+>   - 하위 집합을 집합에 매핑할 때 유효성 검사를 진행하지 않습니다.
 
 ## Validation 성공일 때
 ```shell
@@ -35,4 +35,4 @@ Not-always-valid                                                                
 External world      --Validation------------------------------------------------> External World
 hello.com                                                                         hello.com
 ```
-
+- Validation 실패일 때는 유효하지 않기 때문에 Internal world 도메인 모델을 생성하지 않습니다.
