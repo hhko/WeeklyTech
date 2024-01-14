@@ -1,6 +1,6 @@
 # WeeklyTech
 > **배움**은 **설렘**이다.   
-> **배움**은 **이타심**이다.
+> **배움**은 **이타심**이다.  
 > **배움**은 **겸손**이다.
 
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
@@ -8,6 +8,13 @@
 ## 2024년
 ### 3주
 - CI/CD | [로컬 코드 커버리지 스크립트](./2024/03/CodeCoverage/)
+  ```
+  패키지 ID                              버전           명령
+  --------------------------------------------------------------------
+  dotnet-coverage                        17.9.6        dotnet-coverage
+  dotnet-reportgenerator-globaltool      5.2.0         reportgenerator
+  ```
+
 ### 2주
 - Validation | [유효성 검사는 하위 집합 매핑이다(개념 1/3)](./2024/02/ValidationConcept1/)
   ```
