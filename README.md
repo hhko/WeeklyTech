@@ -6,6 +6,8 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 3주
+- CI/CD | [로컬 코드 커버리지 스크립트](./2024/03/CodeCoverage/)
 ### 2주
 - Validation | [유효성 검사는 하위 집합 매핑이다(개념 1/3)](./2024/02/ValidationConcept1/)
   ```
