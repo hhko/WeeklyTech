@@ -20,17 +20,17 @@
   ```
 
 ### 2주
+- Validation | [유효성 검사 규칙은 도메인 지식이다(개념 2/3)](./2024/02/ValidationConcept2/)
+  ```
+  Invariant is a condition that your domain model must uphold at all times.
+  Invariant is the same as input validation
+  ```
 - Validation | [유효성 검사는 하위 집합 매핑이다(개념 1/3)](./2024/02/ValidationConcept1/)
   ```
   Outside World ------------------mapping------------------> Inside World
   Superset                                                   Subset
   Not always-valid domain model                              Always-valid domain model
   제약 조건이 없는 외부 세상                                   제약 조건이 있는 내부 세상
-  ```
-- Validation | [유효성 검사 규칙은 도메인 지식이다(개념 2/3)](./2024/02/ValidationConcept2/)
-  ```
-  Invariant is a condition that your domain model must uphold at all times.
-  Invariant is the same as input validation
   ```
 
 ### 1주
