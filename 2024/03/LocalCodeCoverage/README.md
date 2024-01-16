@@ -1,6 +1,8 @@
 # 2024년 Weekly #03 | 로컬 코드 커버리지
 
-CI 스크립트: [Build.ps1](./Build.ps1)
+- CI 스크립트
+  - [원격 저장소, Build.ps1](https://github.com/hhko/ArchiWorkshop/blob/main/Projects/ArchiWorkshop/Build.ps1)
+  - [로컬 파일, Build.ps1](./Build.ps1)
 
 ## dotnet 도구 설치
 ```shell
