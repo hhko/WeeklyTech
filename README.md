@@ -1,7 +1,7 @@
 # WeeklyTech
-> **배움**은 **설렘**이다.
-> **배움**은 **겸손**이다.
-> **배움**은 **이타심**이다.  
+> **배움**은 **설렘**이다.  
+> **배움**은 **겸손**이다.  
+> **배움**은 **이타심**이다.
 
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
@@ -9,6 +9,7 @@
 ### 3주
 - CI/CD | [GitHub Actions 코드 커버리지](./2024/03/GitHubCodeCoverage/)
   ```
+  .github/workflows/{파일명}.yml
   ```
 - CI/CD | [로컬 코드 커버리지](./2024/03/LocalCodeCoverage/)
   ```
