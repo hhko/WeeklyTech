@@ -6,6 +6,21 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 4주
+- ValueObject | Enumeration 값 객체 만들기(IEnumerable 객체 생성하기)
+  ```cs
+  public static IEnumerable<TEnum> GetFieldsForType(Type enumType)
+  {
+    return enumType
+      // public static 필드 검색
+      // 모든 상위 타입에 대해 멤버를 검색
+      .GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+      // enumType과 할당 호환되는 필드만 선택
+      .Where(fieldInfo => enumType.IsAssignableFrom(fieldInfo.FieldType))
+      // 생성
+      .Select(fieldInfo => (TEnum)fieldInfo.GetValue(default)!);
+  }
+  ```
 ### 3주
 - CI/CD | [GitHub Actions 코드 커버리지](./2024/03/GitHubCodeCoverage/)
   ```
