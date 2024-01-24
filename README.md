@@ -7,7 +7,7 @@
 
 ## 2024년
 ### 4주
-- ValueObject | Enumeration 값 객체 만들기(IEnumerable 객체 생성하기)
+- ValueObject | [Enumeration 값 객체 만들기(IEnumerable 객체 생성하기)](./2024/04/CreateEnumFormClass/)
   ```cs
   public static IEnumerable<TEnum> GetFieldsForType(Type enumType)
   {
