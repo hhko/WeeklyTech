@@ -3,7 +3,12 @@
 ## 다운로드
 - https://github.com/open-telemetry/opentelemetry-collector-releases/releases
   - https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.92.0/otelcol-contrib_0.92.0_windows_amd64.tar.gz
-
+- Windows 실행
+  ```
+  .\otelcol-contrib.exe --config=.\config.yaml
+  .\otelcol-contrib.exe --config=file:.\config.yaml
+  ```
+  
 ## Json 로그 입력
 ```json
 {"Timestamp":"2024-01-29T11:41:48.3602090+09:00","Level":"Warning","MessageTemplate":"The ASP.NET Core developer certificate is not trusted."}
