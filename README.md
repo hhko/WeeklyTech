@@ -27,7 +27,7 @@
         timestamp:
           parse_from: attributes.Timestamp    # 대소문자를 비교한다.
           layout_type: gotime                 # Go언어 기반 파싱
-          layout: '2006-01-02T15:04:05Z07:00'
+          layout: '2006-01-02T15:04:05.999999999Z07:00'
   ```
 
 ### 4주
