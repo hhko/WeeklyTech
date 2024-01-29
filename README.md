@@ -6,6 +6,20 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 5주
+- Telemetry | [OpenTelemetry Collector Json 로그 읽기](./2024/05)
+  ```
+  # 2024-01-29T11:41:48.3602090+09:00 -> Timestamp: 2024-01-29 02:41:48.360209 +0000 UTC
+  receivers:
+    filelog:
+      operators:
+      - type: json_parser
+        timestamp:
+          parse_from: attributes.Timestamp    # 대소문자를 비교한다.
+          layout_type: gotime                 # Go언어 기반 파싱
+          #layout: '2006-01-02T15:04:05Z07:00'
+  ```
+
 ### 4주
 - ValueObject | [Enumeration 값 객체 만들기(IEnumerable 객체 생성하기)](./2024/04/CreateEnumFormClass/)
   ```cs
