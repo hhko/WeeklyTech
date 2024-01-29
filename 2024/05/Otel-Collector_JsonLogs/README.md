@@ -1,4 +1,4 @@
-# 2024년 Weekly #05 | OpenTelemetry Collector Json 로그 읽기
+# 2024년 Weekly #05 | OpenTelemetry Collector로 Json 로그 수집하기
 
 ## 다운로드
 - https://github.com/open-telemetry/opentelemetry-collector-releases/releases

@@ -1,6 +1,7 @@
+# 2024년 Weekly #05 | OpenTelemetry Collector로 Host Metrics 수집하기
+
 ```yaml
 receivers:
-  # https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/hostmetricsreceiver
   hostmetrics:
     collection_interval: 30s
     scrapers:
@@ -21,3 +22,4 @@ service:
       processors: [batch]
       exporters: [debug]
 ```
+- https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/hostmetricsreceiver

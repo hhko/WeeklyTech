@@ -7,9 +7,19 @@
 
 ## 2024년
 ### 5주
-- Telemetry | [OpenTelemetry Collector Json 로그 읽기](./2024/05)
+- Telemetry | [OpenTelemetry Collector로 Host Metrics 수집하기](./2024/05/Otel-Collector_HostMetrics/)
+  ```yaml
+  receivers:
+    hostmetrics:
+      collection_interval: 30s
+      scrapers:
+        cpu:
+        memory:
   ```
-  # 2024-01-29T11:41:48.3602090+09:00 -> Timestamp: 2024-01-29 02:41:48.360209 +0000 UTC
+- Telemetry | [OpenTelemetry Collector로 Json 로그 수집하기](./2024/05/Otel-Collector_JsonLogs/)
+  ```yaml
+  # 2024-01-29T11:41:48.3602090+09:00
+  # -> Timestamp: 2024-01-29 02:41:48.360209 +0000 UTC
   receivers:
     filelog:
       operators:
@@ -17,7 +27,7 @@
         timestamp:
           parse_from: attributes.Timestamp    # 대소문자를 비교한다.
           layout_type: gotime                 # Go언어 기반 파싱
-          #layout: '2006-01-02T15:04:05Z07:00'
+          layout: '2006-01-02T15:04:05Z07:00'
   ```
 
 ### 4주
