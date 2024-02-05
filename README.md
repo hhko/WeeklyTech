@@ -6,6 +6,19 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 6주
+- WebApi | [WebApi Versioning](./2024/06_2024-02-05/WebApiVersioning/)
+  ```
+  var apiVersioningBuilder = builder.Services.AddApiVersioning(o =>
+  {
+    o.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("api-version"),
+        new HeaderApiVersionReader("X-Version"),
+        new MediaTypeApiVersionReader("ver"),
+        new UrlSegmentApiVersionReader());
+  });
+  ```
+
 ### 5주
 - Telemetry | [OpenTelemetry Collector로 Host Metrics 수집하기](./2024/05/Otel-Collector_HostMetrics/)
   ```yaml
