@@ -6,6 +6,9 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 11주
+- GitLab | [GitLab Runner Install](./2024/11/GitLabRunnerInstall/)
+
 ### 6주
 - WebApi | [WebApi Versioning](./2024/06_2024-02-05/WebApiVersioning/)
   ```
