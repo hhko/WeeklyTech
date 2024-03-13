@@ -197,6 +197,7 @@ Runtime platform                                    arch=amd64 os=windows pid=14
 <br/>
 
 ## 참고 사이트
+- [.gitlab-ci.yml 작성](https://velog.io/@minji104/.gitlab-ci.yml-%EC%9E%91%EC%84%B1)
 - [Install GitLab Runner on Windows](https://docs.gitlab.com/runner/install/windows.html)
 - [Registering runners](https://docs.gitlab.com/runner/register/index.html#windows)
 - [One-line registration command](https://docs.gitlab.com/runner/register/#one-line-registration-command)
