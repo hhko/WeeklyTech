@@ -6,6 +6,13 @@
 - [아키텍처 워크숍 for Domain-Driven Design](https://github.com/hhko/ArchiWorkshop)
 
 ## 2024년
+### 12주
+- Shell | [SSH 접속시 암호 생략하기](./2024/12/SSH-WinToLinux/)
+  ```
+  ssh-keygen
+  type $env:USERPROFILE\.ssh\id_rsa.pub | ssh xyz@1.1.1.2 "cat >> .ssh/authorized_keys"
+  ```
+
 ### 11주
 - GitLab | [GitLab Runner Install](./2024/11/GitLabRunnerInstall/)
 
