@@ -30,7 +30,8 @@ C:\Workspace\GitLab-Runner\gitlab-runner.exe
 # --registration-token 저장소 > 메뉴 > Settings > CI/CD > Runners
 
 # 7/8. Runner 명령
-.\gitlab-runner.exe install                            # Runner 설치
+.\gitlab-runner.exe install                            # System 계정 Runner 설치
+.\gitlab-runner.exe install --user ENTER-YOUR-USERNAME --password ENTER-YOUR-PASSWORD  # 특정 계정 Runner 설치
 .\gitlab-runner.exe start                              # Runner 서비스 시작
 .\gitlab-runner.exe stop                               # Runner 서비스 중지
 .\gitlab-runner.exe uninstall                          # Runner 제거
@@ -39,6 +40,17 @@ C:\Workspace\GitLab-Runner\gitlab-runner.exe
 # warning: failed to remove ... .cache: Filename too lon
 git config --system core.longpaths true # 시스템 설정
 git config --global core.longpaths true # 전역 설정
+
+# 9/8. Runner 로그
+Get-WinEvent -ProviderName gitlab-runner
+```
+
+## Update
+```
+.\gitlab-runner.exe stop
+# 다운로드
+# .exe 파일 덮어쓰기
+.\gitlab-runner.exe start
 ```
 
 ## GitLab Runner 환경
